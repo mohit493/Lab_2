@@ -1,5 +1,9 @@
+
+
+
 //DinnerModel Object constructor
 var DinnerModel = function () {
+
 
         //TODO Lab 2 implement the data structure that will hold number of guest
         // and selected dinner options for dinner menu
@@ -11,7 +15,7 @@ var DinnerModel = function () {
         this.menuOptions['starter'] = 1;
 
 
-        this.setNumberOfGuests = function (num) {
+        this.setNumberOfGuests = function (num) {	
             this.numberOfGuests = num;
         }
 
@@ -43,14 +47,18 @@ var DinnerModel = function () {
 
         //Returns the dish number that is on the menu for selected type 
         this.getSelectedDish = function (type) {
+        	console.log(this.menuOptions[type]);
             return this.menuOptions[type];
         }
 
+
         //Returns all the dishes on the menu.
         this.getFullMenu = function () {
+        	console.log("Full Menu:");
             var fullMenu = [];
             for (key in this.menuOptions) {
-                fullMenu.push(this.menuOptions[key])
+                fullMenu.push(this.menuOptions[key]);
+                console.log(key + ": " + this.menuOptions[key]);
             }
             return fullMenu;
         }
@@ -59,7 +67,7 @@ var DinnerModel = function () {
         this.getAllIngredients = function () {
             var allIngredients = [];
             for (key in this.menuOptions) {
-                allIngredients.push(getIngredients(this.menuOptions[key]);
+                allIngredients.push(getIngredients(this.menuOptions[key]));
                 }
                 return allIngredients;
             }
@@ -386,7 +394,24 @@ var DinnerModel = function () {
                         'unit': 'null',
                         'price': 0
 			}]
+		},{
+		'id':0,
+		'name':'null',
+		'type':'null',
+		'image':'null',
+		'description':"null",
+		'ingredients':[{ 
+			'name':'null',
+			'quantity':0,
+			'unit':'null',
+			'price':0
+			}]
 		}
 	];
 
-        }
+}
+
+
+
+
+
