@@ -1,48 +1,99 @@
+
 //DinnerModel Object constructor
 var DinnerModel = function() {
  
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
 
+	//Each menu has only one dich of a type (starter, main dish and dessert)
+
+	this.numberOfGuests = 0;
+	this.menuOptions = [];
+	this.menuOptions['starter'] = 1;
+
 
 	this.setNumberOfGuests = function(num) {
-		//TODO Lab 2
+		this.numberOfGuests = num;
 	}
 
 	// should return 
 	this.getNumberOfGuests = function() {
-		//TODO Lab 2
+		return this.numberOfGuests;
 	}
 
-	//Returns the dish that is on the menu for selected type 
+	//create null menu for testing
+	this.createMenu = function() {
+		this.menuOptions['starter'] = 0;
+		this.menuOptions['main dish'] = 0;
+		this.menuOptions['dessert'] = 0;
+	}
+
+	//Adds the passed dish number to the menu. If the dish of that type already exists on the menu
+	//it is removed from the menu and the new one added.
+	this.addDishToMenu = function(id) {
+		//find type of dish
+		var dishType;
+		for (key in dishes) {
+			if(dishes[key].id == id) {
+				dishType = dishes[key].type;
+			}  
+		}
+		//replace in the manu the dish of this type
+		this.menuOptions[dishType] = id;
+	}
+
+	//Returns the dish number that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
-		//TODO Lab 2
+		return this.menuOptions[type];
 	}
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		//TODO Lab 2
+		var fullMenu = [];
+		for (key in this.menuOptions) {
+			fullMenu.push(this.menuOptions[key])
+		}
+		return fullMenu;
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
-		//TODO Lab 2
+		var allIngredients = [];
+		for (key in this.menuOptions) {
+			allIngredients.push(getIngredients(this.menuOptions[key]);
+		}
+		return allIngredients;
 	}
+
+	//Returns the ingredients of one dish id
+	this.getIngredients = function (id) {
+		var theIngredients = [];
+		for (key in dishes) {
+			if (dishes[key].id == id) {
+				theIngredients = dishes[key].ingredients;
+			}
+		}
+		return theIngredients;
+ 	}
+
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
-		//TODO Lab 2
-	}
-
-	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
-	//it is removed from the menu and the new one added.
-	this.addDishToMenu = function(id) {
-		//TODO Lab 2 
+		var totalMenuPrice = 0;
+		var ingredientsList = this.getAllIngredients();
+		for (key in ingredientsList) {
+			totalMenuPrice += ingredientsList[key].price;
+		}
+		return totalMenuPrice * this.getNumberOfGuests();
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
-		//TODO Lab 2
+		for (key in this.menuOptions) {
+			if (this.menuOptions[key] == id) {
+				this.menuOptions[key] = 0;
+			}
+		}
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
@@ -324,6 +375,18 @@ var DinnerModel = function() {
 			'quantity':100,
 			'unit':'ml',
 			'price':6
+			}]
+		},{
+		'id':0,
+		'name':'null',
+		'type':'null',
+		'image':'null',
+		'description':"null",
+		'ingredients':[{ 
+			'name':'null',
+			'quantity':0,
+			'unit':'null',
+			'price':0
 			}]
 		}
 	];
