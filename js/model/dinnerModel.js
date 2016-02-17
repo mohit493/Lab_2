@@ -12,11 +12,14 @@ var DinnerModel = function () {
 
         this.numberOfGuests = 0;
         this.menuOptions = [];
+
+
         this.menuOptions['starter'] = 1;
 
 
         this.setNumberOfGuests = function (num) {	
             this.numberOfGuests = num;
+            this.notifyObservers();
         }
 
         // should return 
@@ -43,6 +46,7 @@ var DinnerModel = function () {
             }
             //replace in the manu the dish of this type
             this.menuOptions[dishType] = id;
+            this.notifyObservers('menu');
         }
 
         //Returns the dish number that is on the menu for selected type 
@@ -101,6 +105,7 @@ var DinnerModel = function () {
                         this.menuOptions[key] = 0;
                     }
                 }
+                this.notifyObservers('menu');
             }
 
             //function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
@@ -132,6 +137,22 @@ var DinnerModel = function () {
                     }
                 }
             }
+
+
+            this.observerList = [];
+
+            //that will add new observer to the array
+            this.addObserver = function(observer) {
+            	this.observerList.push(observer);
+            }
+
+            //that will call the update method on all the observers in the array
+            var notifyObservers = function(obj) {
+            	for (key in this.observerList) {
+            		observerList[key].update(obj);
+            	}
+            }
+
 
 
             // the dishes variable contains an array of all the 
