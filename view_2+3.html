@@ -29,104 +29,173 @@
 
 
     <!-- View 2 -->
-    <div id="sidebarView">
-        <div class="col-md-4">
-            <div>
-                <h2>My Dinner</h2> Number of guests :
+<div id="sidebarView">
+    <div class="col-md-4">
+        <div>
+            <h2>My Dinner</h2> Number of guests :
 
-                <input type="number" id="editGuestNumber" value="5" min="1" />
+            <input type="number" id="editGuestNumber" value="5" min="1" />
 
-            </div>
-
-            <table class="table" id="menu-table">
-                <thead>
-                    <th>Dish Name</th>
-                    <th>Cost</th>
-                </thead>
-                <tbody class="table-striped">
-                    <tr id="starterRow" style="display:none">
-                        <td id="starterItem">Starter</td>
-                        <td id="starterItemCost">0.00</td>
-                        <td>
-                            <button id="removeStarterBtn" class="btn btn-xs btn-danger">x</button>
-                        </td>
-                    </tr>
-                    <tr id="mainRow" style="display:none">
-                        <td id="mainItem">Main</td>
-                        <td id="mainItemCost">0.00</td>
-                        <td>
-                            <button id="removeMainBtn" class="btn btn-xs btn-danger">x</button>
-                        </td>
-                    </tr>
-                    <tr id="dessertRow" style="display:none">
-                        <td id="dessertItem">Dessert</td>
-                        <td id="dessertItemCost">0.00</td>
-                        <td>
-                            <button id="removeDessertBtn" class="btn btn-xs btn-danger">x</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="total_text" style="text-align:left">Total Amount</td>
-                        <td id="total" style="text-align:right">SEK</td>
-                        <td id="totalCost">0.00</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div></div>
-            <div align="right">
-                <button id="confirmButton" class="btn btn-warning">Confirm Dinner</button>
-            </div>
         </div>
-    </div>
 
-    <!-- View 3 -->
-
-    <!-- Search Bar -->
-
-    <div class="col-md-offset-4" id="searchbar">
-
-        <table class="table">
+        <table class="table" id="menu-table">
             <thead>
-                <th>SEARCH DISH</th>
+                <th>Dish Name</th>
+                <th>Cost</th>
             </thead>
-            <tbody>
-                <td>
-                    <form role="form">
-
-                        <!-- <label for="searchDish">SELECT DISH</label> -->
-                        <input type="keyword" class="form-control" id="searchDish" placeholder="Enter keyword">
-
-                    </form>
-                </td>
-
-                <td>
-
-                    <select class="form-control" id="option">
-                        <option id="allOpt">All</option>
-                        <option id="startersOpt">Starters</option>
-                        <option id="mainOpt">Main course</option>
-                        <option id="dessertsOpt">Desserts</option>
-                    </select>
-                </td>
+            <tbody class="table-striped">
+                <tr id="starterRow" style="display:none">
+                    <td id="starterItem">Starter</td>
+                    <td id="starterItemCost">0.00</td>
+                    <td>
+                        <button id="removeStarterBtn" class="btn btn-xs btn-danger">x</button>
+                    </td>
+                </tr>
+                <tr id="mainRow" style="display:none">
+                    <td id="mainItem">Main</td>
+                    <td id="mainItemCost">0.00</td>
+                    <td>
+                        <button id="removeMainBtn" class="btn btn-xs btn-danger">x</button>
+                    </td>
+                </tr>
+                <tr id="dessertRow" style="display:none">
+                    <td id="dessertItem">Dessert</td>
+                    <td id="dessertItemCost">0.00</td>
+                    <td>
+                        <button id="removeDessertBtn" class="btn btn-xs btn-danger">x</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="total_text" style="text-align:left">Total Amount</td>
+                    <td id="total" style="text-align:right">SEK</td>
+                    <td id="totalCost">0.00</td>
+                </tr>
             </tbody>
         </table>
+
+        <div></div>
+        <div align="right">
+            <button id="confirmButton" class="btn btn-warning">Confirm Dinner</button>
+        </div>
     </div>
+</div>
 
-    <div id="selectDishView" class="col-xs-6 col-sm-9">
-        <!-- Gi --- > not able to add images for the selected dishes -->
+<!-- View 3 -->
 
-        <div class="container">
+<!-- Search Bar -->
 
-            <div class="col-xs-12 col-sm-9">
-                <div class="centered">
-                    <div id="starters"></div>
-                    <div id="main"></div>
-                    <div id="desserts"></div>
+<div class="col-md-offset-4" id="searchbar">
+
+    <table class="table">
+        <thead>
+            <th>SEARCH DISH</th>
+        </thead>
+        <tbody>
+            <td>
+                <form role="form">
+
+                    <!-- <label for="searchDish">SELECT DISH</label> -->
+                    <input type="keyword" class="form-control" id="searchDish" placeholder="Enter keyword">
+
+                </form>
+            </td>
+
+            <td>
+
+                <select class="form-control" id="option">
+                    <option id="allOpt">All</option>
+                    <option id="startersOpt">Starters</option>
+                    <option id="mainOpt">Main course</option>
+                    <option id="dessertsOpt">Desserts</option>
+                </select>
+            </td>
+        </tbody>
+    </table>
+</div>
+
+<div id="selectDishView" class="col-md-offset-4">
+
+
+    <div class="container">
+
+        <div class="col-md-9">
+            <div class="centered">
+                <div id="starters">
+                    <h4>Starters</h4>
+
+                    <div class="col-md-3">
+                        <img src="images/bakedbrie.jpg" class="img-responsive" alt="Baked Bread">
+                        <H5>Baked Bread</H5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="images/bakedbrie.jpg" class="img-responsive" alt="Baked Bread">
+                        <H5>Baked Bread</H5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="images/bakedbrie.jpg" class="img-responsive" alt="Baked Bread">
+                        <H5>Baked Bread</H5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="images/bakedbrie.jpg" class="img-responsive" alt="Baked Bread">
+                        <H5>Baked Bread</H5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+                    </div>
+                    <br>
+                    <br>
+                </div>
+                <div id="main">
+                    <h4>Main Course</h4>
+                    <div class="col-md-3">
+                        <img src="images/meatballs.jpg" class="img-responsive" alt="Meat Balls">
+                        <H5>Meat Balls</H5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="images/meatballs.jpg" class="img-responsive" alt="Meat Balls">
+                        <H5>Meat Balls</H5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="images/toast.jpg" class="img-responsive" alt="Toast">
+                        <H5>Toast</H5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="images/toast.jpg" class="img-responsive" alt="Toast">
+                        <H5>Toast</H5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+                    </div>
+                </div>
+                <div id="desserts">
+                    <h4>Deserts</h4>
+                    <div class="col-md-3">
+                        <img src="images/icecream.jpg" class="img-responsive" alt="Ice Cream">
+                        <H5>Ice Cream</H5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="images/icecream.jpg" class="img-responsive" alt="Ice Cream">
+                        <H5>Ice Cream</H5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="images/sourdough.jpg" class="img-responsive" alt="Sour dough">
+                        <H5>Sour Dough</H5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="images/sourdough.jpg" class="img-responsive" alt="Sour Dough">
+                        <H5>Sour Dough</H5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
