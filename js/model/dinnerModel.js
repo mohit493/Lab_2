@@ -7,6 +7,7 @@ var DinnerModel = function () {
 
     //Each menu has only one dich of a type (starter, main dish and dessert)
 
+<<<<<<< HEAD
     this.numberOfGuests = 0;
     this.menuOptions = [];
     this.menuOptions['starter'] = 1;
@@ -15,6 +16,19 @@ var DinnerModel = function () {
     this.setNumberOfGuests = function (num) {
         this.numberOfGuests = num;
     }
+=======
+        this.numberOfGuests = 0;
+        this.menuOptions = [];
+
+
+        this.menuOptions['starter'] = 1;
+
+
+        this.setNumberOfGuests = function (num) {	
+            this.numberOfGuests = num;
+            this.notifyObservers();
+        }
+>>>>>>> master
 
     // should return 
     this.getNumberOfGuests = function () {
@@ -37,6 +51,12 @@ var DinnerModel = function () {
             if (dishes[key].id == id) {
                 dishType = dishes[key].type;
             }
+<<<<<<< HEAD
+=======
+            //replace in the manu the dish of this type
+            this.menuOptions[dishType] = id;
+            this.notifyObservers('menu');
+>>>>>>> master
         }
         //replace in the manu the dish of this type
         this.menuOptions[dishType] = id;
@@ -91,11 +111,22 @@ var DinnerModel = function () {
         return totalMenuPrice * this.getNumberOfGuests();
     }
 
+<<<<<<< HEAD
     //Removes dish from menu
     this.removeDishFromMenu = function (id) {
         for (key in this.menuOptions) {
             if (this.menuOptions[key] == id) {
                 this.menuOptions[key] = 0;
+=======
+            //Removes dish from menu
+            this.removeDishFromMenu = function (id) {
+                for (key in this.menuOptions) {
+                    if (this.menuOptions[key] == id) {
+                        this.menuOptions[key] = 0;
+                    }
+                }
+                this.notifyObservers('menu');
+>>>>>>> master
             }
         }
     }
@@ -132,6 +163,7 @@ var DinnerModel = function () {
     }
 
 
+<<<<<<< HEAD
     // the dishes variable contains an array of all the 
     // dishes in the database. each dish has id, name, type,
     // image (name of the image file), description and
@@ -151,6 +183,43 @@ var DinnerModel = function () {
                 'quantity': 0.5,
                 'unit': '',
                 'price': 10
+=======
+            this.observerList = [];
+
+            //that will add new observer to the array
+            this.addObserver = function(observer) {
+            	this.observerList.push(observer);
+            }
+
+            //that will call the update method on all the observers in the array
+            var notifyObservers = function(obj) {
+            	for (key in this.observerList) {
+            		observerList[key].update(obj);
+            	}
+            }
+
+
+
+            // the dishes variable contains an array of all the 
+            // dishes in the database. each dish has id, name, type,
+            // image (name of the image file), description and
+            // array of ingredients. Each ingredient has name, 
+            // quantity (a number), price (a number) and unit (string 
+            // defining the unit i.e. "g", "slices", "ml". Unit
+            // can sometimes be empty like in the example of eggs where
+            // you just say "5 eggs" and not "5 pieces of eggs" or anything else.
+            var dishes = [{
+                    'id': 1,
+                    'name': 'French toast',
+                    'type': 'starter',
+                    'image': 'toast.jpg',
+                    'description': "In a large mixing bowl, beat the eggs. Add the milk, brown sugar and nutmeg; stir well to combine. Soak bread slices in the egg mixture until saturated. Heat a lightly oiled griddle or frying pan over medium high heat. Brown slices on both sides, sprinkle with cinnamon and serve hot.",
+                    'ingredients': [{
+                        'name': 'eggs',
+                        'quantity': 0.5,
+                        'unit': '',
+                        'price': 10
+>>>>>>> master
 			}, {
                 'name': 'milk',
                 'quantity': 30,
