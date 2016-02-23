@@ -13,13 +13,14 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styling.css">
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
 
 
 </head>
 
 <body>
 
-    <div class="background"></div>
+
     <nav class="navbar navbar-fixed-to-top" role="navigation">
         <div class="container">
             <div class="page-header">
@@ -29,7 +30,7 @@
         </div>
     </nav>
     <!-- View 1 -->
-    <div id="homeView">
+    <div id="homeView" class="background">
         <div class="container-fluid">
             <div class="jumbotron col-md-8">
                 <h3 class="header">A Home Dinner Service</h3>
@@ -100,11 +101,11 @@
 
     <!-- Search Bar -->
 
-    <div class="col-md-offset-4" id="searchbar" style="display:none">
+    <div class="col-md-offset-4" id="searchbar" style="display:none;">
 
         <table class="table">
             <thead>
-                <th>SEARCH DISH</th>
+                <th>SELECT or SEARCH DISH</th>
             </thead>
             <tbody>
                 <td>
@@ -129,89 +130,19 @@
         </table>
     </div>
 
-    <div id="selectDishView" class="col-md-offset-4" style="display:none">
-
+    <div id="selectDishView" style="display:none;" class="col-md-offset-4">
 
         <div class="container">
-
             <div class="col-md-9">
                 <div class="centered">
-                    <div id="starters">
-                        <h4>Starters</h4>
-
-                        <div class="col-md-3">
-                            <img src="images/bakedbrie.jpg" class="img-responsive" alt="Baked Bread">
-                            <H5>Baked Bread</H5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/bakedbrie.jpg" class="img-responsive" alt="Baked Bread">
-                            <H5>Baked Bread</H5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/bakedbrie.jpg" class="img-responsive" alt="Baked Bread">
-                            <H5>Baked Bread</H5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/bakedbrie.jpg" class="img-responsive" alt="Baked Bread">
-                            <H5>Baked Bread</H5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
-                        </div>
-                        <br>
-                        <br>
-                    </div>
-                    <div id="main">
-                        <h4>Main Course</h4>
-                        <div class="col-md-3">
-                            <img src="images/meatballs.jpg" class="img-responsive" alt="Meat Balls">
-                            <H5>Meat Balls</H5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/meatballs.jpg" class="img-responsive" alt="Meat Balls">
-                            <H5>Meat Balls</H5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/toast.jpg" class="img-responsive" alt="Toast">
-                            <H5>Toast</H5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/toast.jpg" class="img-responsive" alt="Toast">
-                            <H5>Toast</H5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
-                        </div>
-                    </div>
-                    <div id="desserts">
-                        <h4>Deserts</h4>
-                        <div class="col-md-3">
-                            <img src="images/icecream.jpg" class="img-responsive" alt="Ice Cream">
-                            <H5>Ice Cream</H5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/icecream.jpg" class="img-responsive" alt="Ice Cream">
-                            <H5>Ice Cream</H5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/sourdough.jpg" class="img-responsive" alt="Sour dough">
-                            <H5>Sour Dough</H5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
-                        </div>
-                        <div class="col-md-3">
-                            <img src="images/sourdough.jpg" class="img-responsive" alt="Sour Dough">
-                            <H5>Sour Dough</H5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
-                        </div>
-                    </div>
+                    <div id="starters"> </div>
+                    <div id="main"> </div>
+                    <div id="desserts"> </div>
                 </div>
             </div>
         </div>
     </div>
+
 
     <!-- View 4 -->
 
@@ -350,6 +281,7 @@
     </div>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="js/typeahead.min.js"></script>
     <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
@@ -357,6 +289,8 @@
     <script src="js/app.js"></script>
     <script src="js/model/dinnerModel.js"></script>
     <script src="js/view/exampleView.js"></script>
+    <!--script src="js/view/homeview.js"></script-->
+    <script src="js/view/selectDishView.js"></script>
     <!--script src="js/view/exampleViewController.js"></script-->
 
 
