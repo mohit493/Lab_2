@@ -7,28 +7,19 @@ var DinnerModel = function () {
 
     //Each menu has only one dich of a type (starter, main dish and dessert)
 
-<<<<<<< HEAD
+
     this.numberOfGuests = 0;
     this.menuOptions = [];
+
+
     this.menuOptions['starter'] = 1;
 
 
     this.setNumberOfGuests = function (num) {
         this.numberOfGuests = num;
+        this.notifyObservers();
     }
-=======
-        this.numberOfGuests = 0;
-        this.menuOptions = [];
 
-
-        this.menuOptions['starter'] = 1;
-
-
-        this.setNumberOfGuests = function (num) {	
-            this.numberOfGuests = num;
-            this.notifyObservers();
-        }
->>>>>>> master
 
     // should return 
     this.getNumberOfGuests = function () {
@@ -51,73 +42,62 @@ var DinnerModel = function () {
             if (dishes[key].id == id) {
                 dishType = dishes[key].type;
             }
-<<<<<<< HEAD
-=======
+
             //replace in the manu the dish of this type
             this.menuOptions[dishType] = id;
             this.notifyObservers('menu');
->>>>>>> master
-        }
-        //replace in the manu the dish of this type
-        this.menuOptions[dishType] = id;
-    }
-
-    //Returns the dish number that is on the menu for selected type 
-    this.getSelectedDish = function (type) {
-        console.log(this.menuOptions[type]);
-        return this.menuOptions[type];
-    }
 
 
-    //Returns all the dishes on the menu.
-    this.getFullMenu = function () {
-        console.log("Full Menu:");
-        var fullMenu = [];
-        for (key in this.menuOptions) {
-            fullMenu.push(this.menuOptions[key]);
-            console.log(key + ": " + this.menuOptions[key]);
-        }
-        return fullMenu;
-    }
-
-    //Returns all ingredients for all the dishes on the menu.
-    this.getAllIngredients = function () {
-        var allIngredients = [];
-        for (key in this.menuOptions) {
-            allIngredients.push(getIngredients(this.menuOptions[key]));
-        }
-        return allIngredients;
-    }
-
-    //Returns the ingredients of one dish id
-    this.getIngredients = function (id) {
-        var theIngredients = [];
-        for (key in dishes) {
-            if (dishes[key].id == id) {
-                theIngredients = dishes[key].ingredients;
+            //Returns the dish number that is on the menu for selected type 
+            this.getSelectedDish = function (type) {
+                console.log(this.menuOptions[type]);
+                return this.menuOptions[type];
             }
-        }
-        return theIngredients;
-    }
 
 
-    //Returns the total price of the menu (all the ingredients multiplied by number of guests).
-    this.getTotalMenuPrice = function () {
-        var tot3alMenuPrice = 0;
-        var ingredientsList = this.getAllIngredients();
-        for (key in ingredientsList) {
-            totalMenuPrice += ingredientsList[key].price;
-        }
-        return totalMenuPrice * this.getNumberOfGuests();
-    }
+            //Returns all the dishes on the menu.
+            this.getFullMenu = function () {
+                console.log("Full Menu:");
+                var fullMenu = [];
+                for (key in this.menuOptions) {
+                    fullMenu.push(this.menuOptions[key]);
+                    console.log(key + ": " + this.menuOptions[key]);
+                }
+                return fullMenu;
+            }
 
-<<<<<<< HEAD
-    //Removes dish from menu
-    this.removeDishFromMenu = function (id) {
-        for (key in this.menuOptions) {
-            if (this.menuOptions[key] == id) {
-                this.menuOptions[key] = 0;
-=======
+            //Returns all ingredients for all the dishes on the menu.
+            this.getAllIngredients = function () {
+                var allIngredients = [];
+                for (key in this.menuOptions) {
+                    allIngredients.push(getIngredients(this.menuOptions[key]));
+                }
+                return allIngredients;
+            }
+
+            //Returns the ingredients of one dish id
+            this.getIngredients = function (id) {
+                var theIngredients = [];
+                for (key in dishes) {
+                    if (dishes[key].id == id) {
+                        theIngredients = dishes[key].ingredients;
+                    }
+                }
+                return theIngredients;
+            }
+
+
+            //Returns the total price of the menu (all the ingredients multiplied by number of guests).
+            this.getTotalMenuPrice = function () {
+                var tot3alMenuPrice = 0;
+                var ingredientsList = this.getAllIngredients();
+                for (key in ingredientsList) {
+                    totalMenuPrice += ingredientsList[key].price;
+                }
+                return totalMenuPrice * this.getNumberOfGuests();
+            }
+
+
             //Removes dish from menu
             this.removeDishFromMenu = function (id) {
                 for (key in this.menuOptions) {
@@ -126,7 +106,7 @@ var DinnerModel = function () {
                     }
                 }
                 this.notifyObservers('menu');
->>>>>>> master
+
             }
         }
     }
@@ -162,8 +142,22 @@ var DinnerModel = function () {
         }
     }
 
+    this.observerList = [];
 
-<<<<<<< HEAD
+    //that will add new observer to the array
+    this.addObserver = function (observer) {
+        this.observerList.push(observer);
+    }
+
+    //that will call the update method on all the observers in the array
+    var notifyObservers = function (obj) {
+        for (key in this.observerList) {
+            observerList[key].update(obj);
+        }
+    }
+
+
+
     // the dishes variable contains an array of all the 
     // dishes in the database. each dish has id, name, type,
     // image (name of the image file), description and
@@ -183,43 +177,6 @@ var DinnerModel = function () {
                 'quantity': 0.5,
                 'unit': '',
                 'price': 10
-=======
-            this.observerList = [];
-
-            //that will add new observer to the array
-            this.addObserver = function(observer) {
-            	this.observerList.push(observer);
-            }
-
-            //that will call the update method on all the observers in the array
-            var notifyObservers = function(obj) {
-            	for (key in this.observerList) {
-            		observerList[key].update(obj);
-            	}
-            }
-
-
-
-            // the dishes variable contains an array of all the 
-            // dishes in the database. each dish has id, name, type,
-            // image (name of the image file), description and
-            // array of ingredients. Each ingredient has name, 
-            // quantity (a number), price (a number) and unit (string 
-            // defining the unit i.e. "g", "slices", "ml". Unit
-            // can sometimes be empty like in the example of eggs where
-            // you just say "5 eggs" and not "5 pieces of eggs" or anything else.
-            var dishes = [{
-                    'id': 1,
-                    'name': 'French toast',
-                    'type': 'starter',
-                    'image': 'toast.jpg',
-                    'description': "In a large mixing bowl, beat the eggs. Add the milk, brown sugar and nutmeg; stir well to combine. Soak bread slices in the egg mixture until saturated. Heat a lightly oiled griddle or frying pan over medium high heat. Brown slices on both sides, sprinkle with cinnamon and serve hot.",
-                    'ingredients': [{
-                        'name': 'eggs',
-                        'quantity': 0.5,
-                        'unit': '',
-                        'price': 10
->>>>>>> master
 			}, {
                 'name': 'milk',
                 'quantity': 30,
