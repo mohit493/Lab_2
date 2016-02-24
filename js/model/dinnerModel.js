@@ -95,6 +95,8 @@ var DinnerModel = function () {
                     totalMenuPrice += ingredientsList[key].price;
                 }
                 return totalMenuPrice * this.getNumberOfGuests();
+
+
             }
 
 
