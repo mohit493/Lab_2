@@ -1,4 +1,4 @@
-//View 2
+//View 4 by Giovanna and Mohit
 var DishDescriptionView = function(container, model) {
 
 	//add div buttons
@@ -10,6 +10,9 @@ var DishDescriptionView = function(container, model) {
 	this.dishImage = container.find("#dishImage");
 	this.dishPreparation = container.find("#dishPreparation");
 
+	//number of guests
+	this.ingredientsFor = container.find("#ingredientsFor");
+
 	this.update = function() {
 
 		//upload dish info
@@ -19,8 +22,24 @@ var DishDescriptionView = function(container, model) {
 		this.dishImage.attr('src', 'images/' + this.dish.image);
 		this.dishPreparation.html(this.dish.description);
 
+		var ingredientsList = "";
+		var totalPrice = 0;
+
+		for (var x=0; x < this.dish.ingredients.length; x++){
+			ingredientsList += ' ' + 
+			this.dish.ingredients[x].quantity + ' ' +
+			this.dish.ingredients[x].unit + ' ' +
+			this.dish.ingredients[x].name + ' ' +
+			'SEK ' + this.dish.ingredients[x].price + '</span><br>';
+			totalPrice += this.dish.ingredients[x].price;
+		}
+
+		this.ingredientsFor.html(model.getNumberOfGuests());
+		document.getElementById("ingredientsList").innerHTML = ingredientsList;
+ 		document.getElementById("totalPrice").innerHTML = 'SEK ' + totalPrice;
 	}
- 
+
+	
  	this.update();
 
 
