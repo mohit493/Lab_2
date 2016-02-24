@@ -45,73 +45,73 @@ var DinnerModel = function () {
 
             //replace in the manu the dish of this type
             this.menuOptions[dishType] = id;
-            this.notifyObservers('menu');
-
-
-            //Returns the dish number that is on the menu for selected type 
-            this.getSelectedDish = function (type) {
-                console.log(this.menuOptions[type]);
-                return this.menuOptions[type];
-            }
-
-
-            //Returns all the dishes on the menu.
-            this.getFullMenu = function () {
-                console.log("Full Menu:");
-                var fullMenu = [];
-                for (key in this.menuOptions) {
-                    fullMenu.push(this.menuOptions[key]);
-                    console.log(key + ": " + this.menuOptions[key]);
-                }
-                return fullMenu;
-            }
-
-            //Returns all ingredients for all the dishes on the menu.
-            this.getAllIngredients = function () {
-                var allIngredients = [];
-                for (key in this.menuOptions) {
-                    allIngredients.push(getIngredients(this.menuOptions[key]));
-                }
-                return allIngredients;
-            }
-
-            //Returns the ingredients of one dish id
-            this.getIngredients = function (id) {
-                var theIngredients = [];
-                for (key in dishes) {
-                    if (dishes[key].id == id) {
-                        theIngredients = dishes[key].ingredients;
-                    }
-                }
-                return theIngredients;
-            }
-
-
-            //Returns the total price of the menu (all the ingredients multiplied by number of guests).
-            this.getTotalMenuPrice = function () {
-                var totalMenuPrice = 0;
-                var ingredientsList = this.getAllIngredients();
-                for (key in ingredientsList) {
-                    totalMenuPrice += ingredientsList[key].price;
-                }
-                return totalMenuPrice * this.getNumberOfGuests();
-
-
-            }
-
-
-            //Removes dish from menu
-            this.removeDishFromMenu = function (id) {
-                for (key in this.menuOptions) {
-                    if (this.menuOptions[key] == id) {
-                        this.menuOptions[key] = 0;
-                    }
-                }
-                this.notifyObservers('menu');
-
-            }
         }
     }
+
+
+    //Returns the dish number that is on the menu for selected type 
+    this.getSelectedDish = function (type) {
+        console.log(this.menuOptions[type]);
+        return this.menuOptions[type];
+    }
+
+
+    //Returns all the dishes on the menu.
+    this.getFullMenu = function () {
+        console.log("Full Menu:");
+        var fullMenu = [];
+        for (key in this.menuOptions) {
+            fullMenu.push(this.menuOptions[key]);
+            console.log(key + ": " + this.menuOptions[key]);
+        }
+        return fullMenu;
+    }
+
+    //Returns all ingredients for all the dishes on the menu.
+    this.getAllIngredients = function () {
+        var allIngredients = [];
+        for (key in this.menuOptions) {
+            allIngredients.push(getIngredients(this.menuOptions[key]));
+        }
+        return allIngredients;
+    }
+
+    //Returns the ingredients of one dish id
+    this.getIngredients = function (id) {
+        var theIngredients = [];
+        for (key in dishes) {
+            if (dishes[key].id == id) {
+                theIngredients = dishes[key].ingredients;
+            }
+        }
+        return theIngredients;
+    }
+
+
+    //Returns the total price of the menu (all the ingredients multiplied by number of guests).
+    this.getTotalMenuPrice = function () {
+        var totalMenuPrice = 0;
+        var ingredientsList = this.getAllIngredients();
+        for (key in ingredientsList) {
+            totalMenuPrice += ingredientsList[key].price;
+        }
+        return totalMenuPrice * this.getNumberOfGuests();
+
+
+    }
+
+
+    //Removes dish from menu
+    this.removeDishFromMenu = function (id) {
+        for (key in this.menuOptions) {
+            if (this.menuOptions[key] == id) {
+                this.menuOptions[key] = 0;
+            }
+        }
+        this.notifyObservers('menu');
+
+    }
+
 
     //function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
     //you can use the filter argument to filter out the dish by name or ingredient (use for search)

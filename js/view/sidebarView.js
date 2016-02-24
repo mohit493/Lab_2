@@ -1,19 +1,24 @@
-//ExampleView Object constructor
+//View 2 by Giovanna and Mohit
+var sidebarView = function(container,model) {
 
-var ExampleView = function (container, model) {
+	//edit number of guests
+	this.numberOfGuests = container.find("#numberOfGuests");
+	this.setNumberOfGuests = container.find("#setNumberOfGuests");
 
-    var changeview1 = document.getElementById("createDinner");
+	//get the current view
+	this.div = container.find("#sidebarView");
 
-    changeview1.addEventListener("click", function () {
+	//display number of guests
+	this.numberOfGuests.html(model.getNumberOfGuests);
+
+	this.update = function(arg) {
+		
+		this.numberOfGuests.html(model.getNumberOfGuests);
 
 
-        $("#homeView").hide();
-        $("#sidebarView").show();
-        $("#searchbar").show();
-        $("#selectDishView").show();
 
+	}
 
-    });
 
 
 
