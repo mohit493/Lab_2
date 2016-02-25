@@ -34,7 +34,7 @@
             <div>
                 <h2>My Dinner</h2> Number of guests :
 
-                <input type="number" id="editGuestNumber" value="5" min="1" />
+                <input type="number" id="setNumberOfGuests"/>
 
             </div>
 
@@ -45,22 +45,22 @@
                 </thead>
                 <tbody class="table-striped">
                     <tr id="starterRow" style="display:none">
-                        <td id="starterItem">Starter</td>
-                        <td id="starterItemCost">0.00</td>
+                        <td id="starterName">Starter</td>
+                        <td id="starterCost">0.00</td>
                         <td>
                             <button id="removeStarterBtn" class="btn btn-xs btn-danger">x</button>
                         </td>
                     </tr>
                     <tr id="mainRow" style="display:none">
-                        <td id="mainItem">Main</td>
-                        <td id="mainItemCost">0.00</td>
+                        <td id="mainName">Main</td>
+                        <td id="mainCost">0.00</td>
                         <td>
                             <button id="removeMainBtn" class="btn btn-xs btn-danger">x</button>
                         </td>
                     </tr>
                     <tr id="dessertRow" style="display:none">
-                        <td id="dessertItem">Dessert</td>
-                        <td id="dessertItemCost">0.00</td>
+                        <td id="dessertName">Dessert</td>
+                        <td id="dessertCost">0.00</td>
                         <td>
                             <button id="removeDessertBtn" class="btn btn-xs btn-danger">x</button>
                         </td>
@@ -68,7 +68,7 @@
                     <tr>
                         <td id="total_text" style="text-align:left">Total Amount</td>
                         <td id="total" style="text-align:right">SEK</td>
-                        <td id="totalCost">0.00</td>
+                        <td id="totalPrice"></td>
                     </tr>
                 </tbody>
             </table>
@@ -87,28 +87,30 @@
 
             <div></div>
 
-
-
-            <h3 id="dishName">Meatballs</h3>
-            <img id="dishImg" src="images/lmeatballs.jpg" class="img-responsive" alt="Meatballs">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+            <h3 id="dishName"></h3>
+            <img id="dishImage">
+            <br>
+            <br>
 
             <button id="backToSelectDish" class="btn btn-warning" role: "button">Back to select dish</button>
 
             <h3>PREPARATION</h3>
-            <p id="dishPrep"></p>
+            <p id="dishPreparation"></p>
         </div>
 
         <div class="col-md-offset-7">
-            <h3>Ingredients for <span id="ingredientheading"></span> people</h3>
-            <div id="ingredientlist">
+            <h3>Ingredients for <span id="ingredientsFor"></span> people</h3>
+            <div id="ingredientsList">
             </div>
 
             <br>
+            <div style="padding-left:110px;">
+                <span id="totalPrice"></span>
+            </div>
             <br>
-            <div style="padding-left:40px;">
-                <button id="confirmDishButton" class="btn btn-warning" style="display:inline;">Confirm Dish</button>
-                <span id="priceCounter"></span>
+            <div style="padding-left:0px;">
+                <button id="confirmDish" class="btn btn-warning" style="display:inline;">Confirm Dish</button>
+                
             </div>
         </div>
     </div>
@@ -121,8 +123,8 @@
     <!-- The application JavaScript code -->
     <script src="js/app.js"></script>
     <script src="js/model/dinnerModel.js"></script>
-    <script src="js/view/exampleView.js"></script>
-    <!-- script src="js/view/exampleViewController.js"></script>
+    <script src="js/view/dishDescriptionView.js"></script>
+    <script src="js/view/sidebarView.js"></script>
 <!--script src="js/view/exampleViewController.js"></script-->
 </body>
 
