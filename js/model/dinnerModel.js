@@ -1,14 +1,18 @@
 //DinnerModel Object constructor
 var DinnerModel = function () {
 
+
+
     //Each menu has only one dich of a type (starter, main dish and dessert)
     this.numberOfGuests = 0;
     this.menuOptions = [];
     this.menuOptions['starter'] = 1;
 
 
+
     this.setNumberOfGuests = function (num) {
         this.numberOfGuests = num;
+        notifyObservers();
     }
 
     // should return 
@@ -35,6 +39,7 @@ var DinnerModel = function () {
         }
          //replace in the manu the dish of this type
         this.menuOptions[dishType] = id;
+        notifyObservers();
     }
 
 
@@ -117,7 +122,7 @@ var DinnerModel = function () {
                 this.menuOptions[key] = 0;
             }
         }
-        //this.notifyObservers('menu');
+        notifyObservers();
 
     }
 
@@ -152,18 +157,19 @@ var DinnerModel = function () {
         }
     }
 
-    this.observerList = [];
+    var observers = [];
 
-    //that will add new observer to the array
-    this.addObserver = function (observer) {
-        this.observerList.push(observer);
+    this.addObserver = function(observer) 
+    {
+        observers.push(observer);
     }
 
-    //that will call the update method on all the observers in the array
-    var notifyObservers = function (obj) {
-        for (key in this.observerList) {
-            observerList[key].update(obj);
-        }
+    var notifyObservers = function(arg) 
+    {
+        for(var i=0; i<observers.length; i++) 
+        {
+            observers[i].update(arg);
+        }   
     }
 
 

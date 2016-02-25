@@ -2,6 +2,12 @@ $(function () {
     //We instantiate our model
     var model = new DinnerModel();
 
-	var instructionsView = new InstructionsView($("#instructionsView"), model);
+    model.addDishToMenu(1);
+    model.addDishToMenu(103);
+    model.addDishToMenu(200);
+
+    model.setNumberOfGuests(2);
+	var sidebarView = new SidebarView($("#sidebarView"), model);
+	var sidebarController = new SidebarController(sidebarView, model);
 
 });
