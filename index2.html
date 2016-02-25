@@ -29,9 +29,8 @@
             </div>
         </div>
     </nav>
-
     <!-- View 1 -->
-    <div id="homeView">
+    <div id="homeView" class="background">
         <div class="container-fluid">
             <div class="jumbotron col-md-8">
                 <h3 class="header">A Home Dinner Service</h3>
@@ -47,7 +46,7 @@
     </div>
 
     <!-- View 2 -->
-    <div id="sidebarView">
+    <div id="sidebarView" style="display:none">
         <div class="col-md-4">
             <div>
                 <h2>My Dinner</h2> Number of guests :
@@ -97,7 +96,6 @@
             </div>
         </div>
     </div>
-
 
     <!-- View 3 -->
 
@@ -149,36 +147,37 @@
     <!-- View 4 -->
 
     <!-- Dish Description -->
-    <div class="col-md-offset-4" id="dishDescriptionView">
+    <div class="col-md-offset-4" id="dishDescriptionView" style="display:none;">
 
         <div class="col-md-6">
 
             <div></div>
 
-            <h3 id="dishName"></h3>
-            <img id="dishImage">
-            <br>
-            <br>
+
+
+            <h3 id="dishName">Meatballs</h3>
+            <img id="dishImg" src="images/lmeatballs.jpg" class="img-responsive" alt="Meatballs">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+
+            <button id="backToSelectDish" class="btn btn-warning" role: "button">Back to select dish</button>
 
             <h3>PREPARATION</h3>
-            <p id="dishPreparation"></p>
-            <button id="backToSelectDish" class="btn btn-warning" role: "button">Back to select dish</button>
+            <p id="dishPrep"></p>
         </div>
 
         <div class="col-md-offset-7">
-            <h3>Ingredients for <span id="ingredientsFor"></span> people</h3>
-            <div id="ingredientsList">
+            <h3>Ingredients for <span id="ingredientheading"></span> people</h3>
+            <div id="ingredientlist">
             </div>
 
             <br>
             <br>
-            <div style="padding-left:0px;">
-                <button id="confirmDish" class="btn btn-warning" style="display:inline;">Confirm Dish</button>
-                <span id="dishCost"></span>
+            <div style="padding-left:40px;">
+                <button id="confirmDishButton" class="btn btn-warning" style="display:inline;">Confirm Dish</button>
+                <span id="priceCounter"></span>
             </div>
         </div>
     </div>
-
     <!-- View 5 -->
 
     <div id="numGuestsView" style="display:none">
@@ -239,48 +238,47 @@
 
     <!-- View 7 -->
     <!-- Instructions view !-->
-    <div id="instructionsView">
+    <div id="instructionsView" style="display:none">
         <div class="container">
             <div class="col-md-2">
-                <img id="starterImage" width="150px" height="150px">
+                <img id="starterImg" width="150px" height="150px">
             </div>
             <div class="col-md-4">
-                <h1 id='starterName'></h1>
-                <span id='starterIngredients'></span>
+                <h1 id='starterName'>Starter name</h1>
+                <span id='starterIngredients'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</span>
             </div>
             <div class="col-md-6">
                 <h3>Preparation</h3>
-                <span id='starterPreparation'></span>
+                <span id='starterPrep'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</span>
             </div>
         </div>
         <div class="container" style="padding-top: 20px">
             <div class="col-md-2">
-                <img id="mainImage" width="150px" height="150px">
+                <img id="mainImg" width="150px" height="150px">
             </div>
             <div class="col-md-4">
-                <h1 id='mainName'></h1>
-                <span id='mainIngredients'></span>
+                <h1 id='mainName'>Main name</h1>
+                <span id='mainIngredients'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</span>
             </div>
             <div class="col-md-6">
                 <h3>Preparation</h3>
-                <span id='mainPreparation'></span>
+                <span id='mainPrep'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</span>
             </div>
         </div>
         <div class="container" style="padding-top: 20px">
             <div class="col-md-2">
-                <img id="dessertImage" width="150px" height="150px">
+                <img id="dessertImg" width="150px" height="150px">
             </div>
             <div class="col-md-4">
-                <h1 id='dessertName'></h1>
-                <span id='dessertIngredients'></span>
+                <h1 id='dessertName'>Desert name</h1>
+                <span id='dessertIngredients'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</span>
             </div>
             <div class="col-md-6">
                 <h3>Preparation</h3>
-                <span id='dessertPreparation'></span>
+                <span id='dessertPrep'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</span>
             </div>
         </div>
     </div>
-
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="js/typeahead.min.js"></script>
@@ -295,11 +293,6 @@
     <script src="js/view/selectDishView.js"></script>
     <script src="js/view/summaryView.js"></script>
     <script src="js/view/numGuestsView.js"></script>
-    <script src="js/view/instructionsView.js"></script>
-    <script src="js/view/dishDescriptionView.js"></script>
-    <script src="js/view/dishDescriptionController.js"></script>
-    <script src="js/view/sidebarView.js"></script>
-    <script src="js/view/sidebarController.js"></script>
     <!--script src="js/view/exampleViewController.js"></script-->
 
 
