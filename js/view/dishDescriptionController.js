@@ -1,48 +1,34 @@
-//View 4 by Giovanna and Mohit
-var DishDescriptionView = function(container, model) {
+//Controller 4 by Giovanna and Mohit
+var DishDescriptionController = function(view, model) {
 
-	//add div buttons
-	this.backToSelectDish = container.find("#backToSelectDish");
-	this.confirmDish = container.find("#confirmDish");
+	var dishCost;
 
-	//add dish info
-	this.dishName = container.find("#dishName");
-	this.dishImage = container.find("#dishImage");
-	this.dishPreparation = container.find("#dishPreparation");
+	$("#backToSelectDish").click(function(){
+		$('#dishDescriptionView').hide();
+		$('#selectDishView').show();
+		$('#searchbar').show();
+	});
 
-	//number of guests
-	this.ingredientsFor = container.find("#ingredientsFor");
-
-	model.addObserver(this);
-
-	this.update = function() {
-
-		//upload dish info
-		this.dish = model.getDish(2);
-
-		this.dishName.html(this.dish.name);
-		this.dishImage.attr('src', 'images/' + this.dish.image);
-		this.dishPreparation.html(this.dish.description);
-
-		var ingredientsList = "";
-		var totalPrice = 0;
-
-		for (var x=0; x < this.dish.ingredients.length; x++){
-			ingredientsList += ' ' + 
-			this.dish.ingredients[x].quantity + ' ' +
-			this.dish.ingredients[x].unit + ' ' +
-			this.dish.ingredients[x].name + ' ' +
-			'SEK ' + this.dish.ingredients[x].price + '</span><br>';
-			totalPrice += this.dish.ingredients[x].price;
+	$("#confirmDish").click(function(){
+		$('#dishDescriptionView').hide();
+		$('#selectDishView').show();
+		$('#searchbar').show();
+		model.addDishToMenu(view.dish.id);
+		if (view.dish.type == 'starter') {
+			$('#starterRow').show();
+			$('#starterItem').text(view.dish.name);
+			$('#starterItemCost').text(model.getDishPrice(view.dish));
 		}
-
-		this.ingredientsFor.html(model.getNumberOfGuests());
-		document.getElementById("ingredientsList").innerHTML = ingredientsList;
- 		document.getElementById("totalPrice").innerHTML = 'SEK ' + totalPrice;
-	}
-
-	
- 	this.update();
-
+		if (view.dish.type == 'main dish') {
+			$('#mainRow').show();
+			$('#mainItem').text(view.dish.name);
+			$('#mainItemCost').text(model.getDishPrice(view.dish));
+		}
+		if (view.dish.type == 'dessert') {
+			$('#dessertRow').show();
+			$('#dessertItem').text(view.dish.name);
+			$('#mainItemCost').text(model.getDishPrice(view.dish));
+		}
+	});
 
 }

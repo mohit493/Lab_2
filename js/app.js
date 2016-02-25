@@ -9,5 +9,7 @@ $(function () {
     model.setNumberOfGuests(2);
 	var sidebarView = new SidebarView($("#sidebarView"), model);
 	var sidebarController = new SidebarController(sidebarView, model);
+	var dishDescriptionView = new DishDescriptionView($("#dishDescriptionView"),model);
+	var dishDescriptionController = new DishDescriptionController(dishDescriptionView, model);
 
 });

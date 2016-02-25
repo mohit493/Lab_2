@@ -38,7 +38,7 @@ var DishDescriptionView = function(container, model) {
 
 		this.ingredientsFor.html(model.getNumberOfGuests());
 		document.getElementById("ingredientsList").innerHTML = ingredientsList;
- 		document.getElementById("totalPrice").innerHTML = 'SEK ' + totalPrice;
+ 		document.getElementById("dishCost").innerHTML = 'SEK ' + totalPrice;
 	}
 
 	

@@ -84,6 +84,15 @@ var DinnerModel = function () {
         return printf;
     }
 
+    this.getDishPrice = function(dish) {
+        var dishPrice;
+        for(var i = 0; i < dish.ingredients.length; i++) {
+            var current = dish.ingredients[i];
+            dishPrice += current.price;
+        }
+        return dishPrice;
+    }
+
         //Returns all ingredients for all the dishes on the menu.
     this.getAllIngredients = function () {
         var allIngredients = [];
