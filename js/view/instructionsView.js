@@ -23,9 +23,6 @@ var InstructionsView = function (container,model) {
 	model.addDishToMenu(1);
 	model.addDishToMenu(103);
 	model.addDishToMenu(200);
-
-	model.getAllIngredients();
-	model.getTotalMenuPrice();
 			
 	this.update = function(arg) {
 
