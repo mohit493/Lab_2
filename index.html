@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    <title>Lab 2 : MVC</title>
+    <title>Dinner Planer</title>
 
 
     <!-- Bootstrap CSS -->
@@ -46,13 +46,13 @@
         </div>
     </div>
 
-    <!-- View 2 -->
-    <div id="sidebarView">
+     <!-- View 2 -->
+    <div id="sidebarView"  style="display:none;">
         <div class="col-md-4">
             <div>
                 <h2>My Dinner</h2> Number of guests :
 
-                <input type="number" id="editGuestNumber" value="5" min="1" />
+                <input type="number" id="setNumberOfGuests"/>
 
             </div>
 
@@ -62,31 +62,31 @@
                     <th>Cost</th>
                 </thead>
                 <tbody class="table-striped">
-                    <tr id="starterRow" style="display:none">
-                        <td id="starterItem">Starter</td>
-                        <td id="starterItemCost">0.00</td>
+                    <tr id="starterRow">
+                        <td id="starterName"></td>
+                        <td id="starterCost"></td>
                         <td>
-                            <button id="removeStarterBtn" class="btn btn-xs btn-danger">x</button>
+                            <button id="removeStarterX" class="btn btn-xs btn-danger">x</button>
                         </td>
                     </tr>
-                    <tr id="mainRow" style="display:none">
-                        <td id="mainItem">Main</td>
-                        <td id="mainItemCost">0.00</td>
+                    <tr id="mainRow">
+                        <td id="mainName"></td>
+                        <td id="mainCost"></td>
                         <td>
-                            <button id="removeMainBtn" class="btn btn-xs btn-danger">x</button>
+                            <button id="removeMainX" class="btn btn-xs btn-danger">x</button>
                         </td>
                     </tr>
-                    <tr id="dessertRow" style="display:none">
-                        <td id="dessertItem">Dessert</td>
-                        <td id="dessertItemCost">0.00</td>
+                    <tr id="dessertRow">
+                        <td id="dessertName"></td>
+                        <td id="dessertCost"></td>
                         <td>
-                            <button id="removeDessertBtn" class="btn btn-xs btn-danger">x</button>
+                            <button id="removeDessertX" class="btn btn-xs btn-danger">x</button>
                         </td>
                     </tr>
                     <tr>
                         <td id="total_text" style="text-align:left">Total Amount</td>
                         <td id="total" style="text-align:right">SEK</td>
-                        <td id="totalCost">0.00</td>
+                        <td id="totalPrice"></td>
                     </tr>
                 </tbody>
             </table>
@@ -98,39 +98,36 @@
         </div>
     </div>
 
-
     <!-- View 3 -->
 
-    <!-- Search Bar -->
+<div class="col-md-offset-4" id="searchbar" style="display:none;">
 
-    <div class="col-md-offset-4" id="searchbar" style="display:none;">
+    <table class="table">
+        <thead>
+            <th>SEARCH DISH</th>
+        </thead>
+        <tbody>
+            <td>
+                <form role="form">
 
-        <table class="table">
-            <thead>
-                <th>SELECT or SEARCH DISH</th>
-            </thead>
-            <tbody>
-                <td>
-                    <form role="form">
+                    <!-- <label for="searchDish">SELECT DISH</label> -->
+                    <input type="keyword" class="form-control" id="searchDish" placeholder="Enter keyword">
 
-                        <!-- <label for="searchDish">SELECT DISH</label> -->
-                        <input type="keyword" class="form-control" id="searchDish" placeholder="Enter keyword">
+                </form>
+            </td>
 
-                    </form>
-                </td>
+            <td>
 
-                <td>
-
-                    <select class="form-control" id="option">
-                        <option id="allOpt">All</option>
-                        <option id="startersOpt">Starters</option>
-                        <option id="mainOpt">Main course</option>
-                        <option id="dessertsOpt">Desserts</option>
-                    </select>
-                </td>
-            </tbody>
-        </table>
-    </div>
+                <select class="form-control" id="option">
+                    <option id="allOpt">All</option>
+                    <option id="startersOpt">Starters</option>
+                    <option id="mainOpt">Main course</option>
+                    <option id="dessertsOpt">Desserts</option>
+                </select>
+            </td>
+        </tbody>
+    </table>
+</div>
 
     <div id="selectDishView" style="display:none;" class="col-md-offset-4">
 
@@ -149,7 +146,7 @@
     <!-- View 4 -->
 
     <!-- Dish Description -->
-    <div class="col-md-offset-4" id="dishDescriptionView">
+    <div class="col-md-offset-4" id="dishDescriptionView"  style="display:none;">
 
         <div class="col-md-6">
 
@@ -206,18 +203,18 @@
                     <div id="images">
                         <a>
                             <img id="starter" width="150px" height="150px">
-                            <div class="caption"><span id="starterName">No starter</span></div>
-                            <div class="caption"><span id="starterCost">0 SEK</span></div>
+                            <div class="caption"><span id="starterName"></span></div>
+                            <div class="caption"><span id="starterCost"></span></div>
                         </a>
                         <a>
                             <img id="main" width="150px" height="150px">
-                            <div class="caption"><span id="mainName">No main dish</span></div>
-                            <div class="caption"><span id="mainCost">0 SEK</span></div>
+                            <div class="caption"><span id="mainName"></span></div>
+                            <div class="caption"><span id="mainCost"></span></div>
                         </a>
                         <a>
                             <img id="dessert" width="150px" height="150px">
-                            <div class="caption"><span id="dessertName">No dessert</span></div>
-                            <div class="caption"><span id="dessertCost">0 SEK</span></div>
+                            <div class="caption"><span id="dessertName"></span></div>
+                            <div class="caption"><span id="dessertCost"></span></div>
                         </a>
                     </div>
 
@@ -225,7 +222,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <h5 id='totalCostHeader'>Total cost: </h5><span id="totalCost"></span>
+                <h5 id='totalCostHeader'>Total cost: </h5><span id="totalPrice"></span>
             </div>
 
 
@@ -239,7 +236,7 @@
 
     <!-- View 7 -->
     <!-- Instructions view !-->
-    <div id="instructionsView">
+    <div id="instructionsView" style="display:none;">
         <div class="container">
             <div class="col-md-2">
                 <img id="starterImage" width="150px" height="150px">
@@ -292,9 +289,13 @@
     <script src="js/model/dinnerModel.js"></script>
     <script src="js/typeahead.min.js"></script>
     <script src="js/view/exampleView.js"></script>
+<<<<<<< HEAD
+=======
     <script src="js/view/dishDescriptionView.js"></script>
     <script src="js/view/dishDescriptionController.js"></script>
+>>>>>>> 8f96b47dea77e3ae6f913e88a3475a576c772331
     <script src="js/view/selectDishView.js"></script>
+    <script src="js/view/selectDishViewController.js"></script>
     <script src="js/view/summaryView.js"></script>
     <script src="js/view/summaryViewController.js"></script>
     <script src="js/view/numGuestsView.js"></script>
