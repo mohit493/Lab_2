@@ -19,23 +19,15 @@ var InstructionsView = function (container,model) {
 	this.mainPreparation = container.find("#mainPreparation");
 	this.dessertPreparation = container.find("#dessertPreparation");
 
-	//testing
-	model.addDishToMenu(1);
-	model.addDishToMenu(103);
-	model.addDishToMenu(200);
-
 	model.addObserver(this);
 			
 	this.update = function(arg) {
 
 		var menu = model.getFullMenu();
-		console.log("size" + menu.length);
-		console.log("1" + menu[1].name);
 
 		var ingredientsList = "";
 		for (var i=0; i<menu.length; i++) {
 			var dish = menu[i];
-			console.log("got " + menu[i].name);
 			if (dish.type == 'starter') {
 				this.starterImage.attr('src', 'images/' + dish.image);
 				this.starterName.html(dish.name);

@@ -18,7 +18,7 @@ var DishDescriptionView = function(container, model) {
 	this.update = function() {
 
 		//upload dish info
-		this.dish = model.getDish(2);
+		this.dish = model.getDish(model.getClickedDish());
 
 		this.dishName.html(this.dish.name);
 		this.dishImage.attr('src', 'images/' + this.dish.image);

@@ -11,9 +11,7 @@ var NumGuestsViewController = function (view, model) {
         $('#selectDishView').show();
         $('#sidebarView').show();
         $('#searchbar').show();
-
-
-    });
+   });
 
 
 

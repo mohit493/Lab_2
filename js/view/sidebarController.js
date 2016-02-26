@@ -28,8 +28,9 @@ var SidebarController = function(view, model) {
 	 });
 
 	 //change number if gests
-	$('#editGuestNumber').bind('input', function() {
+	$('#setNumberOfGuests').bind('input', function() {
     	model.setNumberOfGuests($(this).val());
+    	console.log("number of guests: " + $(this).val());
 	});
 
 
