@@ -35,9 +35,9 @@ var DinnerModel = function () {
         for (key in dishes) {
             if (dishes[key].id == id) {
                 dishType = dishes[key].type;
-            }          
+            }
         }
-         //replace in the manu the dish of this type
+        //replace in the manu the dish of this type
         this.menuOptions[dishType] = id;
         notifyObservers();
     }
@@ -51,14 +51,14 @@ var DinnerModel = function () {
 
     //Returns all the dishes on the menu.
     this.getFullMenu = function () {
-            var fullMenu = [];
-            for (key in this.menuOptions) {
-                fullMenu.push(this.getDish(this.menuOptions[key]));
-            }
-            for (var i=0; i<fullMenu.length; i++) {
-                console.log("full" + fullMenu[i].name);
-            }
-            return fullMenu;
+        var fullMenu = [];
+        for (key in this.menuOptions) {
+            fullMenu.push(this.getDish(this.menuOptions[key]));
+        }
+        for (var i = 0; i < fullMenu.length; i++) {
+            console.log("full" + fullMenu[i].name);
+        }
+        return fullMenu;
     }
 
     //Returns the ingredients of one dish id
@@ -69,47 +69,47 @@ var DinnerModel = function () {
                 theIngredients = dishes[key].ingredients;
             }
         }
-        for (var i=0; i<theIngredients.length; i++) {
-          //console.log("getin " + theIngredients[i].name);
-         }
+        for (var i = 0; i < theIngredients.length; i++) {
+            //console.log("getin " + theIngredients[i].name);
+        }
         return theIngredients;
     }
 
-    this.printIngredients = function(dish) {
+    this.printIngredients = function (dish) {
         var printf = '';
-        for(var i = 0; i < dish.ingredients.length; i++) {
+        for (var i = 0; i < dish.ingredients.length; i++) {
             var current = dish.ingredients[i];
-            printf = printf + current.quantity + ' ' + current.unit + ' ' + current.name + ' '  + '</BR>';
+            printf = printf + current.quantity + ' ' + current.unit + ' ' + current.name + ' ' + '</BR>';
         }
         return printf;
     }
 
-    this.getDishPrice = function(dish) {
-        var dishPrice;
-        for(var i = 0; i < dish.ingredients.length; i++) {
+    this.getDishPrice = function (dish) {
+        var dishPrice = 0;
+        for (var i = 0; i < dish.ingredients.length; i++) {
             var current = dish.ingredients[i];
             dishPrice += current.price;
         }
         return dishPrice;
     }
 
-        //Returns all ingredients for all the dishes on the menu.
+    //Returns all ingredients for all the dishes on the menu.
     this.getAllIngredients = function () {
         var allIngredients = [];
         //for each menu option
         for (key in this.menuOptions) {
             var theIngredients = this.getIngredients(this.menuOptions[key]);
             //get ingredients
-            for (var i=0; i<theIngredients.length; i++) {
+            for (var i = 0; i < theIngredients.length; i++) {
                 console.log("getin " + theIngredients[i].name);
                 allIngredients.push(theIngredients[i]);
-            } 
+            }
         }
         console.log(allIngredients.length);
         console.log("getall");
-        for (var i=0; i<allIngredients.length; i++) {
-          console.log(" - " + allIngredients[i].price);
-         }
+        for (var i = 0; i < allIngredients.length; i++) {
+            console.log(" - " + allIngredients[i].price);
+        }
         return allIngredients;
     }
 
@@ -168,17 +168,14 @@ var DinnerModel = function () {
 
     var observers = [];
 
-    this.addObserver = function(observer) 
-    {
+    this.addObserver = function (observer) {
         observers.push(observer);
     }
 
-    var notifyObservers = function(arg) 
-    {
-        for(var i=0; i<observers.length; i++) 
-        {
+    var notifyObservers = function (arg) {
+        for (var i = 0; i < observers.length; i++) {
             observers[i].update(arg);
-        }   
+        }
     }
 
 
