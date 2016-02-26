@@ -21,4 +21,14 @@ var SelectDishViewController = function (view, model) {
         }
     });
 
+    for (var i = 0; i < $('#list div').length; i++) {
+        var curr = $('#list div')[i];
+        curr.onclick = function () {
+            $('#selectDishView').hide();
+            $('#searchbar').hide();
+            $('#dishDescriptionView').show();
+
+        }
+    }
+
 }
