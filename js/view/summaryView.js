@@ -19,7 +19,28 @@ var SummaryView = function (container, model) {
 
     this.printRecipeBtn = container.find("#printRecipeBtn");
 
-    this.totalCost.html("0");
+    for (var i = 0; i < model.getFullMenu().length; i++) {
+        var dish = model.getFullMenu()[i];
+
+        if (dish.type == 'starter') {
+            this.starter.attr('src', 'images/' + dish.image);
+            this.starterName.html(dish.name);
+            this.starterCost.html(model.getDishPrice(dish) + ' SEK');
+        }
+        if (dish.type == 'main dish') {
+            this.main.attr('src', 'images/' + dish.image);
+            this.mainName.html(dish.name);
+            this.mainCost.html(model.getDishPrice(dish) + ' SEK');
+        }
+        if (dish.type == 'dessert') {
+            this.dessert.attr('src', 'images/' + dish.image);
+            this.dessertName.html(dish.name);
+            this.dessertCost.html(model.getDishPrice(dish) + ' SEK');
+        }
+    }
+
+    this.totalCost.html(model.getTotalMenuPrice());
+
 
 
 
