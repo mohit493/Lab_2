@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lab 2 : MVC</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styling.css">
+
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-fixed-to-top" role="navigation">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="title"><a href = "index.html" class = "navbar-home">HOMELETTE</a></h1>
+                <h3 class="subtitle">From the best chefs in the world directly into your kitchen</h3>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+    <!-- View 5 -->
+
+    <div id="numGuestsView">
+        <div class="container">
+            <div class="col-md-12">
+
+                <h1>My dinner: <span id="numberOfGuests"></span> people
+	 			<button id="backButton" class="btn btn-warning" role="button" style="float:right;">Go back and edit dinner</button>  
+	 		</h1>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- View 6 -->
+
+    <!-- Summary view !-->
+    <div id="summaryView">
+        <div class="container">
+
+
+            <div class="col-md-8">
+                <div class="centered">
+
+                    <div id="images">
+                        <a>
+                            <img id="starter" width="150px" height="150px">
+                            <div class="caption"><span id="starterName">No starter</span></div>
+                            <div class="caption"><span id="starterCost">0 SEK</span></div>
+                        </a>
+                        <a>
+                            <img id="main" width="150px" height="150px">
+                            <div class="caption"><span id="mainName">No main dish</span></div>
+                            <div class="caption"><span id="mainCost">0 SEK</span></div>
+                        </a>
+                        <a>
+                            <img id="dessert" width="150px" height="150px">
+                            <div class="caption"><span id="dessertName">No dessert</span></div>
+                            <div class="caption"><span id="dessertCost">0 SEK</span></div>
+                        </a>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h5 id='totalCostHeader'>Total cost: </h5><span id="totalCost"></span>
+            </div>
+
+
+
+            <div class="col-md-4">
+                <button id="printRecipeBtn" class="btn btn-warning btn-lg btn-block">Print full recipe</button>
+            </div>
+
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+    <!-- The application JavaScript code -->
+    <script src="js/app_summary.js"></script>
+    <script src="js/model/dinnerModel.js"></script>
+
+    <script src="js/view/summaryView.js"></script>
+    <script src="js/view/summaryViewController.js"></script>
+    <script src="js/view/numGuestsView.js"></script>
+
+</body>
+
+</html>

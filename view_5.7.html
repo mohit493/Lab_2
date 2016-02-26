@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lab 2 : MVC</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styling.css">
+
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-fixed-to-top" role="navigation">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="title"><a href = "index.html" class = "navbar-home">HOMELETTE</a></h1>
+                <h3 class="subtitle">From the best chefs in the world directly into your kitchen</h3>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+    <!-- View 5 -->
+
+    <div id="numGuestsView">
+        <div class="container">
+            <div class="col-md-12">
+                <!-- Mo : check arrangement and why the . in col -->
+
+                <h1>My dinner: <span id="numberOfGuests"></span> people
+	 			<button id="backButton" class="btn btn-warning" role="button" style="float: right;">Go back and edit dinner</button>  
+	 		</h1>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Instructions view !-->
+    <div id="instructionsView">
+        <div class="container">
+            <div class="col-md-2">
+                <img id="starterImg" width="150px" height="150px">
+            </div>
+            <div class="col-md-4">
+                <h1 id='starterName'>Starter name</h1>
+                <span id='starterIngredients'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</span>
+            </div>
+            <div class="col-md-6">
+                <h3>Preparation</h3>
+                <span id='starterPrep'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</span>
+            </div>
+        </div>
+        <div class="container" style="padding-top: 20px">
+            <div class="col-md-2">
+                <img id="mainImg" width="150px" height="150px">
+            </div>
+            <div class="col-md-4">
+                <h1 id='mainName'>Main name</h1>
+                <span id='mainIngredients'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</span>
+            </div>
+            <div class="col-md-6">
+                <h3>Preparation</h3>
+                <span id='mainPrep'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</span>
+            </div>
+        </div>
+        <div class="container" style="padding-top: 20px">
+            <div class="col-md-2">
+                <img id="dessertImg" width="150px" height="150px">
+            </div>
+            <div class="col-md-4">
+                <h1 id='dessertName'>Desert name</h1>
+                <span id='dessertIngredients'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</span>
+            </div>
+            <div class="col-md-6">
+                <h3>Preparation</h3>
+                <span id='dessertPrep'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+    <!-- The application JavaScript code -->
+    <script src="js/app_summary.js"></script>
+    <script src="js/model/dinnerModel.js"></script>
+    <script src="js/view/summaryView.js"></script>
+    <script src="js/view/numGuestsView.js"></script>
+    <!-- script src="js/view/exampleViewController.js"></script>
+<!--script src="js/view/exampleViewController.js"></script-->
+</body>
+
+</html>
