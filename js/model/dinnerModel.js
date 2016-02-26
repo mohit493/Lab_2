@@ -4,20 +4,20 @@ var DinnerModel = function () {
 
 
     //Each menu has only one dich of a type (starter, main dish and dessert)
-    this.numberOfGuests = 0;
+    var numberOfGuests = 1;
     this.menuOptions = [];
-    this.menuOptions['starter'] = 1;
 
-
+    //store the dish that was clicked
+    var selectedDish = 1;
 
     this.setNumberOfGuests = function (num) {
-        this.numberOfGuests = num;
+        numberOfGuests = num;
         notifyObservers();
     }
 
     // should return 
     this.getNumberOfGuests = function () {
-        return this.numberOfGuests;
+        return numberOfGuests;
     }
 
     //create null menu for testing
@@ -26,6 +26,8 @@ var DinnerModel = function () {
         this.menuOptions['main dish'] = 0;
         this.menuOptions['dessert'] = 0;
     }
+
+    this.createMenu();
 
     //Adds the passed dish number to the menu. If the dish of that type already exists on the menu
     //it is removed from the menu and the new one added.
@@ -55,9 +57,6 @@ var DinnerModel = function () {
         for (key in this.menuOptions) {
             fullMenu.push(this.getDish(this.menuOptions[key]));
         }
-        for (var i = 0; i < fullMenu.length; i++) {
-            console.log("full" + fullMenu[i].name);
-        }
         return fullMenu;
     }
 
@@ -68,9 +67,6 @@ var DinnerModel = function () {
             if (dishes[key].id == id) {
                 theIngredients = dishes[key].ingredients;
             }
-        }
-        for (var i = 0; i < theIngredients.length; i++) {
-            //console.log("getin " + theIngredients[i].name);
         }
         return theIngredients;
     }
@@ -101,14 +97,8 @@ var DinnerModel = function () {
             var theIngredients = this.getIngredients(this.menuOptions[key]);
             //get ingredients
             for (var i = 0; i < theIngredients.length; i++) {
-                console.log("getin " + theIngredients[i].name);
                 allIngredients.push(theIngredients[i]);
             }
-        }
-        console.log(allIngredients.length);
-        console.log("getall");
-        for (var i = 0; i < allIngredients.length; i++) {
-            console.log(" - " + allIngredients[i].price);
         }
         return allIngredients;
     }
@@ -120,7 +110,6 @@ var DinnerModel = function () {
         for (key in ingredientsList) {
             totalMenuPrice += parseFloat(ingredientsList[key].price);
         }
-        console.log(totalMenuPrice);
         return totalMenuPrice * this.getNumberOfGuests();
     }
 
@@ -152,7 +141,7 @@ var DinnerModel = function () {
                     found = true;
                 }
             }
-            return dish.type == type && found;
+            return ((dish.type == type) && (found && dish.id != 0)) ;
         });
         notifyObservers();
     }
@@ -178,7 +167,15 @@ var DinnerModel = function () {
         }
     }
 
+    this.setClickedDish = function(id){
+        selectedDish = id;
+        notifyObservers();
+    }
 
+    this.getClickedDish = function(){
+        console.log("clicked on " + selectedDish);
+        return selectedDish;
+    }
 
     // the dishes variable contains an array of all the 
     // dishes in the database. each dish has id, name, type,
@@ -189,6 +186,42 @@ var DinnerModel = function () {
     // can sometimes be empty like in the example of eggs where
     // you just say "5 eggs" and not "5 pieces of eggs" or anything else.
     var dishes = [{
+            'id': 0,
+            'name': ' ',
+            'type': 'dessert',
+            'image': ' ',
+            'description': " ",
+            'ingredients': [{
+                'name': ' ',
+                'quantity': 0,
+                'unit': ' ',
+                'price': 0
+            }]
+        },{
+            'id': 0,
+            'name': ' ',
+            'type': 'main dish',
+            'image': ' ',
+            'description': " ",
+            'ingredients': [{
+                'name': ' ',
+                'quantity': 0,
+                'unit': ' ',
+                'price': 0
+            }]
+        },{
+            'id': 0,
+            'name': ' ',
+            'type': 'starter',
+            'image': ' ',
+            'description': " ",
+            'ingredients': [{
+                'name': ' ',
+                'quantity': 0,
+                'unit': ' ',
+                'price': 0
+            }]
+        },{
             'id': 1,
             'name': 'French toast',
             'type': 'starter',
@@ -396,7 +429,7 @@ var DinnerModel = function () {
             'id': 200,
             'name': 'Chocolat Ice cream',
             'type': 'dessert',
-            'image': 'icecream.jpg',
+            'image': 'chocolate.jpg',
             'description': "Here is how you make it... Lore ipsum...",
             'ingredients': [{
                 'name': 'ice cream',
@@ -418,9 +451,9 @@ var DinnerModel = function () {
             }]
         }, {
             'id': 202,
-            'name': 'Strawberry',
+            'name': 'Strawberry Cake',
             'type': 'dessert',
-            'image': 'icecream.jpg',
+            'image': 'strawberry.jpg',
             'description': "Here is how you make it... Lore ipsum...",
             'ingredients': [{
                 'name': 'ice cream',
