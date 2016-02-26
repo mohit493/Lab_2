@@ -1,4 +1,4 @@
-//ExampleView Object constructor
+//Summary View
 var SummaryView = function (container, model) {
 
     // Get all the relevant elements of the view (ones that show data
