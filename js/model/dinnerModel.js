@@ -141,7 +141,7 @@ var DinnerModel = function () {
                     found = true;
                 }
             }
-            return ((dish.type == type) && (found && dish.id != 0)) ;
+            return ((dish.type == type) && (found && dish.id != 0));
         });
         notifyObservers();
     }
@@ -167,12 +167,12 @@ var DinnerModel = function () {
         }
     }
 
-    this.setClickedDish = function(id){
+    this.setClickedDish = function (id) {
         selectedDish = id;
         notifyObservers();
     }
 
-    this.getClickedDish = function(){
+    this.getClickedDish = function () {
         console.log("clicked on " + selectedDish);
         return selectedDish;
     }
@@ -186,42 +186,6 @@ var DinnerModel = function () {
     // can sometimes be empty like in the example of eggs where
     // you just say "5 eggs" and not "5 pieces of eggs" or anything else.
     var dishes = [{
-            'id': 0,
-            'name': ' ',
-            'type': 'dessert',
-            'image': ' ',
-            'description': " ",
-            'ingredients': [{
-                'name': ' ',
-                'quantity': 0,
-                'unit': ' ',
-                'price': 0
-            }]
-        },{
-            'id': 0,
-            'name': ' ',
-            'type': 'main dish',
-            'image': ' ',
-            'description': " ",
-            'ingredients': [{
-                'name': ' ',
-                'quantity': 0,
-                'unit': ' ',
-                'price': 0
-            }]
-        },{
-            'id': 0,
-            'name': ' ',
-            'type': 'starter',
-            'image': ' ',
-            'description': " ",
-            'ingredients': [{
-                'name': ' ',
-                'quantity': 0,
-                'unit': ' ',
-                'price': 0
-            }]
-        },{
             'id': 1,
             'name': 'French toast',
             'type': 'starter',
@@ -258,7 +222,7 @@ var DinnerModel = function () {
             'name': 'Sourdough Starter',
             'type': 'starter',
             'image': 'sourdough.jpg',
-            'description': "Here is how you make it... Lore ipsum...",
+            'description': "The starter is mixed with flour and water to make a final dough of the desired consistency. The starter weight is usually 13 to 25% of the total flour weight, though formulas may vary. The dough is shaped into loaves, left to rise, and then baked.",
             'ingredients': [{
                 'name': 'active dry yeast',
                 'quantity': 0.5,
@@ -280,7 +244,7 @@ var DinnerModel = function () {
             'name': 'Baked Brie with Peaches',
             'type': 'starter',
             'image': 'bakedbrie.jpg',
-            'description': "Here is how you make it... Lore ipsum...",
+            'description': "Bake at 350° for 10 minutes. Spoon peach mixture over Brie, mounding slightly. Bake 5 minutes or until cheese is melted. Carefully transfer box to a platter, and serve immediately with crackers.",
             'ingredients': [{
                 'name': 'round Brie cheese',
                 'quantity': 10,
@@ -360,77 +324,55 @@ var DinnerModel = function () {
                 'price': 4
             }]
         }, {
-            'id': 101,
-            'name': 'MD 2',
-            'type': 'main dish',
-            'image': 'bakedbrie.jpg',
-            'description': "Here is how you make it... Lore ipsum...",
-            'ingredients': [{
-                'name': 'ingredient 1',
-                'quantity': 1,
-                'unit': 'pieces',
-                'price': 8
-            }, {
-                'name': 'ingredient 2',
-                'quantity': 15,
-                'unit': 'g',
-                'price': 7
-            }, {
-                'name': 'ingredient 3',
-                'quantity': 10,
-                'unit': 'ml',
-                'price': 4
-            }]
-        }, {
             'id': 102,
-            'name': 'MD 3',
+            'name': 'Indian Curry',
             'type': 'main dish',
-            'image': 'meatballs.jpg',
-            'description': "Here is how you make it... Lore ipsum...",
+            'image': 'curry.jpg',
+            'description': "Place the garlic, chilli, bread and mint in a food processor and pulse until finely chopped. Tip into a bowl and mix with the lamb, egg and seasoning. using damp hands, shape into 16 small meatballs",
             'ingredients': [{
-                'name': 'ingredient 1',
+                'name': 'chicken',
                 'quantity': 2,
                 'unit': 'pieces',
                 'price': 8
             }, {
-                'name': 'ingredient 2',
+                'name': 'vegetables',
                 'quantity': 10,
                 'unit': 'g',
                 'price': 7
             }, {
-                'name': 'ingredient 3',
+                'name': 'spices',
                 'quantity': 5,
                 'unit': 'ml',
                 'price': 4
             }]
         }, {
             'id': 103,
-            'name': 'MD 4',
+            'name': 'Lasagna',
             'type': 'main dish',
-            'image': 'meatballs.jpg',
-            'description': "Here is how you make it... Lore ipsum...",
+            'image': 'lasagna.jpg',
+            'description': "n a Dutch oven, cook sausage, ground beef, onion, and garlic over medium heat until well browned. Stir in crushed tomatoes, tomato paste, tomato sauce, and water. Season with sugar, basil, fennel seeds, Italian seasoning, 1 tablespoon salt, pepper, and 2 tablespoons parsley. Simmer, covered, for about 1 1/2 hours, stirring occasionally",
             'ingredients': [{
-                'name': 'ingredient 1',
+                'name': 'meat',
                 'quantity': 1,
                 'unit': 'pieces',
                 'price': 4
             }, {
-                'name': 'ingredient 2',
+                'name': 'cheese',
                 'quantity': 12,
                 'unit': 'g',
                 'price': 7
             }, {
-                'name': 'ingredient 3',
+                'name': 'tomato sauce',
                 'quantity': 6,
                 'unit': 'ml',
                 'price': 4
             }]
         }, {
             'id': 200,
-            'name': 'Chocolat Ice cream',
+            'name': 'Chocolat Mousse',
             'type': 'dessert',
             'image': 'chocolate.jpg',
-            'description': "Here is how you make it... Lore ipsum...",
+            'description': "Beat 1 1/2 cups whipping cream in chilled medium bowl with electric mixer on high speed until stiff. Fold chocolate mixture into whipped cream. Pipe or spoon mixture into serving bowls. Immediately refrigerate any remaining dessert after serving",
             'ingredients': [{
                 'name': 'ice cream',
                 'quantity': 100,
@@ -441,7 +383,7 @@ var DinnerModel = function () {
             'id': 201,
             'name': 'Vanilla Ice cream',
             'type': 'dessert',
-            'image': 'icecream.jpg',
+            'image': 'icecream.jpeg',
             'description': "Here is how you make it... Lore ipsum...",
             'ingredients': [{
                 'name': 'ice cream',
@@ -463,22 +405,10 @@ var DinnerModel = function () {
             }]
         }, {
             'id': 0,
-            'name': 'null',
+            'name': ' ',
             'type': 'null',
-            'image': 'null',
-            'description': "null",
-            'ingredients': [{
-                'name': 'null',
-                'quantity': 0,
-                'unit': 'null',
-                'price': 0
-            }]
-        }, {
-            'id': 0,
-            'name': 'null',
-            'type': 'null',
-            'image': 'null',
-            'description': "null",
+            'image': 'white.jpg',
+            'description': " ",
             'ingredients': [{
                 'name': 'null',
                 'quantity': 0,

@@ -27,7 +27,7 @@ var SidebarView = function(container,model) {
 	this.update = function(arg) {
 		
 		//display number of guests
-		this.setNumberOfGuests.html(model.getNumberOfGuests);
+		this.numberOfGuests.html(model.getNumberOfGuests());
 
 		//update dishes choices
 		this.starter = model.getDish(model.getSelectedDish('starter'));
@@ -41,7 +41,6 @@ var SidebarView = function(container,model) {
 
 		//display total price
 		this.totalPrice.html(model.getTotalMenuPrice());
-		console.log("total price:" + model.getTotalMenuPrice());
 	}
 
 	this.update();

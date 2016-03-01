@@ -1,8 +1,7 @@
 //Summary View
 var SummaryView = function (container, model) {
 
-    // Get all the relevant elements of the view (ones that show data
-    // and/or ones that responed to interaction)
+    //upload dishes
     this.starter = container.find("#starter");
     this.main = container.find("#main");
     this.dessert = container.find("#dessert");
@@ -15,31 +14,39 @@ var SummaryView = function (container, model) {
     this.mainCost = container.find("#mainCost");
     this.dessertCost = container.find("#dessertCost");
 
-    this.totalCost = container.find("#totalCost");
+    this.totalPrice = container.find("#totalPrice");
 
     this.printRecipeBtn = container.find("#printRecipeBtn");
 
-    for (var i = 0; i < model.getFullMenu().length; i++) {
-        var dish = model.getFullMenu()[i];
+    this.update = function(arg) {
 
-        if (dish.type == 'starter') {
-            this.starter.attr('src', 'images/' + dish.image);
-            this.starterName.html(dish.name);
-            this.starterCost.html(model.getDishPrice(dish) + ' SEK');
+        for (var i = 0; i < model.getFullMenu().length; i++) {
+            var dish = model.getFullMenu()[i];
+
+            if (dish.type == 'starter') {
+                this.starter.attr('src', 'images/' + dish.image);
+                this.starterName.html(dish.name);
+                this.starterCost.html(model.getDishPrice(dish) + ' SEK');
+            }
+            if (dish.type == 'main dish') {
+                this.main.attr('src', 'images/' + dish.image);
+                this.mainName.html(dish.name);
+                this.mainCost.html(model.getDishPrice(dish) + ' SEK');
+            }
+            if (dish.type == 'dessert') {
+                this.dessert.attr('src', 'images/' + dish.image);
+                this.dessertName.html(dish.name);
+                this.dessertCost.html(model.getDishPrice(dish) + ' SEK');
+            }
         }
-        if (dish.type == 'main dish') {
-            this.main.attr('src', 'images/' + dish.image);
-            this.mainName.html(dish.name);
-            this.mainCost.html(model.getDishPrice(dish) + ' SEK');
-        }
-        if (dish.type == 'dessert') {
-            this.dessert.attr('src', 'images/' + dish.image);
-            this.dessertName.html(dish.name);
-            this.dessertCost.html(model.getDishPrice(dish) + ' SEK');
-        }
+        this.totalPrice.html(model.getTotalMenuPrice());
     }
 
-    this.totalCost.html(model.getTotalMenuPrice());
+    model.addObserver(this);
+
+    this.update();
+
+    
 
 
 

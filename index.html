@@ -13,6 +13,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styling.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans|Raleway' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
     <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
 
 
@@ -23,7 +25,7 @@
 
     <nav class="navbar navbar-fixed-to-top" role="navigation">
         <div class="container">
-            <div class="page-header">
+            <div class="page-header" align="center">
                 <h1 class="title"><a href = "index.html" class = "navbar-home">HOMELETTE</a></h1>
                 <h3 class="subtitle">From the best chefs in the world directly into your kitchen</h3>
             </div>
@@ -31,28 +33,32 @@
     </nav>
 
     <!-- View 1 -->
-    <div id="homeView">
-        <div class="container-fluid">
-            <div class="jumbotron col-md-8">
+    <div id="homeView" align="center">
+        <div class="container-fluid background">
+            <div class="jumbotron col-md-12" align="center">
+
                 <h3 class="header">A Home Dinner Service</h3>
-                <p class="intro">
-                    <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elitnam tincidunt odio a mi vulputate viverra.<br>Aliquam et condimentum ipsum, sed hendrerit elit.Lorem ipsum dolor sit amet,   consectetur adipiscing elitnam tincidunt odio a mi vulputate viverra. </h5></p>
+
+                <p class="intro" align="center">
+
+                    <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis </h5></p>
                 <br>
                 <br>
                 <p class="intro">
-                    <h4>Start quickly:</h4></p>
+                    <h4>Start quickly</h4></p>
                 <button id="createDinner" class="btn btn-warning btn-lg" role="button">Create new dinner</button>
             </div>
+
+
         </div>
     </div>
 
-     <!-- View 2 -->
-    <div id="sidebarView"  style="display:none;">
+    <!-- View 2 -->
+    <div id="sidebarView" style="display:none;">
         <div class="col-md-4">
             <div>
-                <h2>My Dinner</h2> Number of guests :
-
-                <input type="number" id="setNumberOfGuests"/>
+                <h3>My Dinner</h3> Edit number of guests :
+                <input type="number" id="setNumberOfGuests" value="1" min="1" />
 
             </div>
 
@@ -100,34 +106,35 @@
 
     <!-- View 3 -->
 
-<div class="col-md-offset-4" id="searchbar" style="display:none;">
+    <div class="col-md-offset-4" id="searchbar" style="display:none;">
 
-    <table class="table">
-        <thead>
-            <th>SEARCH DISH</th>
-        </thead>
-        <tbody>
-            <td>
-                <form role="form">
+        <table class="table">
+            <thead>
+                <th>
+                    <h3>Search Dish</h3></th>
+                <th>
+                    <select class="form-control" id="option">
+                        <option id="allOpt">All</option>
+                        <option id="startersOpt">Starters</option>
+                        <option id="mainOpt">Main course</option>
+                        <option id="dessertsOpt">Desserts</option>
+                    </select>
+                </th>
+                <th>
+                    <form role="form">
 
-                    <!-- <label for="searchDish">SELECT DISH</label> -->
-                    <input type="keyword" class="form-control" id="searchDish" placeholder="Enter keyword">
+                        <!-- <label for="searchDish">SELECT DISH</label> -->
+                        <input type="keyword" class="form-control" id="searchDish" placeholder="Enter keyword">
 
-                </form>
-            </td>
+                    </form>
+                </th>
+            </thead>
+            <tbody>
 
-            <td>
 
-                <select class="form-control" id="option">
-                    <option id="allOpt">All</option>
-                    <option id="startersOpt">Starters</option>
-                    <option id="mainOpt">Main course</option>
-                    <option id="dessertsOpt">Desserts</option>
-                </select>
-            </td>
-        </tbody>
-    </table>
-</div>
+            </tbody>
+        </table>
+    </div>
 
     <div id="selectDishView" style="display:none;" class="col-md-offset-4">
 
@@ -146,7 +153,7 @@
     <!-- View 4 -->
 
     <!-- Dish Description -->
-    <div class="col-md-offset-4" id="dishDescriptionView"  style="display:none;">
+    <div class="col-md-offset-4" id="dishDescriptionView" style="display:none;">
 
         <div class="col-md-6">
 
@@ -203,18 +210,18 @@
                     <div id="images">
                         <a>
                             <img id="starter" width="150px" height="150px">
-                            <div class="caption"><span id="starterName"></span></div>
-                            <div class="caption"><span id="starterCost"></span></div>
+                            <div class="caption"><span id="starterName">--</span></div>
+                            <div class="caption"><span id="starterCost">-</span></div>
                         </a>
                         <a>
                             <img id="main" width="150px" height="150px">
-                            <div class="caption"><span id="mainName"></span></div>
-                            <div class="caption"><span id="mainCost"></span></div>
+                            <div class="caption"><span id="mainName">--</span></div>
+                            <div class="caption"><span id="mainCost">-</span></div>
                         </a>
                         <a>
                             <img id="dessert" width="150px" height="150px">
-                            <div class="caption"><span id="dessertName"></span></div>
-                            <div class="caption"><span id="dessertCost"></span></div>
+                            <div class="caption"><span id="dessertName">--</span></div>
+                            <div class="caption"><span id="dessertCost">-</span></div>
                         </a>
                     </div>
 
@@ -222,14 +229,11 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <h5 id='totalCostHeader'>Total cost: </h5><span id="totalPrice"></span>
-            </div>
-
-
-
-            <div class="col-md-4">
+                <h5 id='totalCostHeader'>Total cost: <span id="totalPrice"></span> SEK </h5>
                 <button id="printRecipeBtn" class="btn btn-warning btn-lg btn-block">Print full recipe</button>
             </div>
+
+
 
         </div>
     </div>
@@ -289,11 +293,6 @@
     <script src="js/model/dinnerModel.js"></script>
     <script src="js/typeahead.min.js"></script>
     <script src="js/view/exampleView.js"></script>
-<<<<<<< HEAD
-=======
-    <script src="js/view/dishDescriptionView.js"></script>
-    <script src="js/view/dishDescriptionController.js"></script>
->>>>>>> 8f96b47dea77e3ae6f913e88a3475a576c772331
     <script src="js/view/selectDishView.js"></script>
     <script src="js/view/selectDishViewController.js"></script>
     <script src="js/view/summaryView.js"></script>
